@@ -29,6 +29,7 @@
 	}
 	
 	function save_surfing_page()
+	//save blog ID to cookie. 
 	{
 		$surfing_page = isset($_COOKIE['fa_surfing_page']) ? explode(",", $_COOKIE['fa_surfing_page']) : array();
 		//print_r(!in_array(get_the_title(), $surfing_page));

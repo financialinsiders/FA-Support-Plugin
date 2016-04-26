@@ -118,11 +118,11 @@
 	function lead_table()
 	{
 		global $wpdb;
-		
+		global $appointments;
 		if(isset($_GET['change_status']))
 		{
 			$wpdb->update($wpdb->prefix . "leads", array('status' => 1), array('id' => $_GET['id']));
-			appointments_update_appointment_status( $_GET['appointment_id'], 'confirmed' );
+			$appointments->appointments_update_appointment_status( $_GET['appointment_id'], 'confirmed' );
 		}
 		
 		$lead_table = new LeadTable();

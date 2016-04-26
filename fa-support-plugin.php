@@ -19,8 +19,7 @@
 			$this->save_lead($appointmentID);
 		}
 		add_action( 'wpmudev_appointments_insert_appointment', 'get_appointment_id' );
-		// This is how we get the Appointment ID but I can see some difficulties, lets discuss tomorrow, we will need to figure out how to get the form data and also get the ID from this hook. 
-		
+		// This is how we get the Appointment ID but I can see some difficulties, lets discuss tomorrow. We need to differientiate if the form has the appointment plugin or not. My best guess is to set it up so we have two buttons one button that uses the appointment plugin and one that doesn't that way we can get the form data from the submit.
 		add_action( 'wp_footer', array( &$this, 'save_surfing_page'), 100 );
 		
 		add_action( 'admin_menu', array( $this, 'add_plugin_pages' ) );

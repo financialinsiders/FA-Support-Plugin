@@ -67,6 +67,7 @@
 	
 	function confirmation_mail()
 	{
+		// Need to add a confirmation link where they click and it confirms in our database.
 		$message = 'Thanks for signing up FinancialInsiders.';
 		
 		NTM_mail_template::send_mail($_POST['email'], 'Registered with FinancialInsiders successfly.', $message);

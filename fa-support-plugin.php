@@ -18,6 +18,8 @@
 		{
 			$this->save_lead($appointmentID);
 		}
+		add_action( 'wpmudev_appointments_insert_appointment', 'get_appointment_id' );
+		// This is how we get the Appointment ID but I can see some difficulties, lets discuss tomorrow, we will need to figure out how to get the form data and also get the ID from this hook. 
 		
 		add_action( 'wp_footer', array( &$this, 'save_surfing_page'), 100 );
 		
@@ -26,6 +28,13 @@
 	
 	function add_plugin_pages() {
 		add_menu_page( 'Leads', 'Leads', 'manage_options', 'lead_table', array( $this, 'lead_table' ));
+	}
+	
+	function get_appointment_id($app_id) {
+		global $appointments;
+		$appointmentID = $appointments->appointments_get_appointment( $app_id );
+		
+		
 	}
 	
 	function save_surfing_page()
